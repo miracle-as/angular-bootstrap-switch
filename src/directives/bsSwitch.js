@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('frapontillo.bootstrap-switch')
-  .directive('bsSwitch', function ($timeout) {
+  .directive('bsSwitch', function () {
     return {
       restrict: 'EA',
       require: 'ngModel',

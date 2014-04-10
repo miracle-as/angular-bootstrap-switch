@@ -1,15 +1,15 @@
 {
   "name": "angular-bootstrap-switch",
-  "version": "0.3.0-alpha.2",
+  "version": "0.3.0-alpha.2.1",
   "author": {
     "name": "Francesco Pontillo",
     "email": "francescopontillo@gmail.com",
     "url": "https://github.com/frapontillo"
   },
-  "homepage": "https://github.com/frapontillo/angular-bootstrap-switch",
+  "homepage": "https://github.com/miracle-as/angular-bootstrap-switch",
   "repository": {
     "type": "git",
-    "url": "git@github.com:frapontillo/angular-bootstrap-switch.git"
+    "url": "git@github.com:miracle-as/angular-bootstrap-switch.git"
   },
   "licenses": [
     {

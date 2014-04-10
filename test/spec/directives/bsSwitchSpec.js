@@ -147,12 +147,12 @@ describe('Directive: bsSwitch', function () {
   function makeTestChangeModel(input) {
     return function () {
       var element = compileDirective(undefined, input);
-      $timeout.flush();
+//      $timeout.flush();
       expect(element.hasClass(CONST.SWITCH_OFF_CLASS)).toBeFalsy();
       expect(element.hasClass(CONST.SWITCH_ON_CLASS)).toBeTruthy();
       scope.model = false;
       scope.$apply();
-      $timeout.flush();
+//      $timeout.flush();
       expect(element.hasClass(CONST.SWITCH_OFF_CLASS)).toBeTruthy();
       expect(element.hasClass(CONST.SWITCH_ON_CLASS)).toBeFalsy();
     };

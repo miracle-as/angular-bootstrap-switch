@@ -1,7 +1,18 @@
-angular-bootstrap-switch [![Build Status](https://travis-ci.org/frapontillo/angular-bootstrap-switch.png)](https://travis-ci.org/frapontillo/angular-bootstrap-switch)
+angular-bootstrap-switch
 ========================
 
 AngularJS directive for the [bootstrap-switch](https://github.com/nostalgiaz/bootstrap-switch) jQuery plugin.
+
+##Hack/Patch
+This is just a small patch to the original project by Francesco Pontillo. The issue is actually in the bootstrap switch
+jQuery project, but a workaround is made here in the Angular wrapper.
+
+
+The fixes are:
+
+* Don't animate the initial state, so that entering a new page does not starts with a lot of animations.
+* State can be set from code even when the control is not enabled.
+
 
 ##Usage
 
