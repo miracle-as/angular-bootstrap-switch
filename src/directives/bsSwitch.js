@@ -28,9 +28,13 @@ angular.module('frapontillo.bootstrap-switch')
           // When the model changes
           controller.$formatters.push(function (newValue) {
             if (newValue !== undefined) {
-              $timeout(function () {
+              if (scope.switchActive === true || scope.switchActive === 'true') {
                 element.bootstrapSwitch('state', newValue || false, true);
-              });
+              } else {
+                element.bootstrapSwitch('disabled', false)
+                  .bootstrapSwitch('state', newValue || false, true)
+                  .bootstrapSwitch('disabled', true);
+              }
             }
           });
 
@@ -94,9 +98,17 @@ angular.module('frapontillo.bootstrap-switch')
           element.on('switchChange.bootstrapSwitch', function (e, data) {
             scope.$apply(function () {
               controller.$setViewValue(data);
+
             });
           });
         };
+
+        var getValueOrUndefined = function(value) {
+          return (value ? value : undefined);
+        };
+
+        // Bootstrap the switch plugin
+        element.bootstrapSwitch();
 
         /**
          * Returns the value if it is truthy, or undefined.
@@ -104,23 +116,12 @@ angular.module('frapontillo.bootstrap-switch')
          * @param value The value to check.
          * @returns the original value if it is truthy, {@link undefined} otherwise.
          */
-        var getValueOrUndefined = function(value) {
-          return (value ? value : undefined);
-        };
 
         // Listen and respond to model changes
         listenToModel();
 
-        // Bootstrap the switch plugin
-        element.bootstrapSwitch();
-
         // Listen and respond to view changes
         listenToView();
-
-        // Delay the setting of the state
-        $timeout(function() {
-          element.bootstrapSwitch('state', controller.$modelValue || false, true);
-        });
 
         // On destroy, collect ya garbage
         scope.$on('$destroy', function () {
