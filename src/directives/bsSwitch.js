@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('frapontillo.bootstrap-switch')
-  .directive('bsSwitch', function () {
+  .directive('bsSwitch', function ($timeout) {
     return {
       restrict: 'EA',
       require: 'ngModel',
@@ -61,9 +61,11 @@ angular.module('frapontillo.bootstrap-switch')
             element.bootstrapSwitch('offColor', getValueOrUndefined(newValue));
           });
 
-          scope.$watch('switchAnimate', function (newValue) {
-            element.bootstrapSwitch('animate', scope.$eval(newValue || 'true'));
-          });
+          $timeout(function(){
+            scope.$watch('switchAnimate', function (newValue) {
+              element.bootstrapSwitch('animate', scope.$eval(newValue || 'true'));
+            });
+          }, 1000);
 
           scope.$watch('switchSize', function (newValue) {
             element.bootstrapSwitch('size', newValue);
